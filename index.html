@@ -1,12 +1,44 @@
 <head>
-<link rel="stylesheet" type="text/css" href="container.css">
+ 	
+ 	<title>Is it a red or blue day?</title>
+	<link rel="stylesheet" type="text/css" href="container.css">
+ 	<!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
 </head> 
 
-<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+<body onload="calcDay();">
 
- <title>Is Mark black?</title>
+<div id="fade-in" class="container" style="text-align:center" id="text"> 
+	<p id="text">
+		<span class="blue-text text-darken-2"><font size="100">It's a blue day.</font></span>
 
-<div class="container">
-    <span><font size="100">Mark is black.</font></span>
+	</p>
+
 </div>
- 
+
+<script type="text/javascript">
+	var isRed;
+
+
+	function calcDay(){
+		setBlue();
+
+	}
+
+	function setRed(){
+		document.getElementById("text").innerHTML = "<span class ='red-text text-darken-2'><font size='100'>Tomorrow is a red day.</font></span>";
+	}
+
+	function setBlue(){
+		document.getElementById("text").innerHTML = "<span class ='blue-text text-darken-2'><font size='100'>Tomorrow is a blue day.</font></span>";
+	}
+
+</script>
+
+</body>
