@@ -1,6 +1,5 @@
 .container {
     position: fixed;
-
     top: 50%;
     left: 50%;
     -moz-transform: translateX(-50%) translateY(-50%);
@@ -8,12 +7,47 @@
     transform: translateX(-50%) translateY(-50%);
 }
 
-#fade-in p {
-    margin-top: 25px;
+.bottom {
+    position: fixed;
+    top: 100%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-100%);
+    -webkit-transform: translateX(-50%) translateY(-100%);
+    transform: translateX(-50%) translateY(-100%);
+}
+
+ul {
+    margin-top: 0px;
     font-size: 21px;
     text-align: center;
 
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
+}
+
+p {
+   
+    margin-top: 0px;
+    font-size: 50px;
+    text-align: center;
+
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
+}
+
+span2 {
+   padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 2s; /* Firefox < 16 */
         -ms-animation: fadein 2s; /* Internet Explorer */
          -o-animation: fadein 2s; /* Opera < 12.1 */
