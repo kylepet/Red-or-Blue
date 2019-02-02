@@ -1,11 +1,15 @@
+<!DOCTYPE html>
 <html>
     <head>
 <title>Red or Blue?</title>
-  <link rel="stylesheet" type="text/css" href="container.css">
-  <link rel="shortcut icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" type="text/css" href="/static/container.css"/>
+  <link rel="shortcut icon" href="/static/favicon.png" type="image/png">
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 
 <meta content="utf-8" http-equiv="encoding">
+<meta property="og:image" content="https://raw.githubusercontent.com/KylePetko/redorblue.kylepet.co/master/favicon.png" />
+    <meta property="og:title" content="Is tomorrow a red or blue day?" />
+<meta property="og:url" content="https://redorblue.kylepet.co" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <!--Import Google Icon Font-->
@@ -14,6 +18,7 @@
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133359397-3"></script>
@@ -24,6 +29,8 @@
 
   gtag('config', 'UA-133359397-3');
 </script>
+
+
 
     </head>
 
@@ -36,7 +43,7 @@ var userEmail = "lgsuhsd.org_tebqf0pqvog3p4s5flsmddg4u8@group.calendar.google.co
 var userTimeZone = "Los_Angeles"; //example "Rome" "Los_Angeles" ecc...
 var maxRows = 10; //events to shown
 var calName = ""; //name of calendar (write what you want, doesn't matter)
-var isRed = true
+var isRed
 var isPM = true
 var isSchool = false
 var scopes = 'https://www.googleapis.com/auth/calendar';
@@ -130,6 +137,7 @@ function makeApiCall() {
                 var li = document.createElement('li');
                 var item = resp.items[i];
                 var classes = [];
+		var str = ""
                 var allDay = item.start.date? true : false;
                 var startDT = allDay ? item.start.date : item.start.dateTime;
                 var dateTime = startDT.split("T"); //split date from time
@@ -155,7 +163,7 @@ function makeApiCall() {
                       isSchool = true
                     }
 
-                    if(isRed)
+                    if(item.summary == "RED"){
                       var str = [
                     '<p size="30 >',
                     startDayWeek, ' ',
@@ -163,7 +171,10 @@ function makeApiCall() {
                     startDay, ' ',
                     startYear, '</p><p size="30" class="red-text text-darken-2" >', "Tomorrow is a red day" , '</p>'
                     ];
-                    else if(!isRed)
+document.title = "Tomorrow is red";
+		    
+		}
+                    else if(item.summary == "BLUE"){
                       var str = [
                     '<p size="30 >',
                     startDayWeek, ' ',
@@ -171,7 +182,10 @@ function makeApiCall() {
                     startDay, ' ',
                     startYear, '</p><p size="30" class="blue-text text-darken-2" >', "Tomorrow is a blue day" , '</p>'
                     ];
-                    
+		document.title = "Tomorrow is blue";
+                    }
+
+
                     
                 }
                 
@@ -189,7 +203,7 @@ function makeApiCall() {
                     startDay, ' ',
                     startYear, '</p><p size="30" class="black-text text-darken-2" >', "Tomorrow there is no school" , '</p>'
                     ];
-
+document.title = "Tomorrow has no school";
                      lit.innerHTML = str.join('');
 
             	lit.innerHTML = str.join('');
@@ -211,6 +225,19 @@ function makeApiCall() {
                         ];
                 }
                 
+if(str == "")
+{
+var str = [
+                    '<p size="30 >',
+                    startDayWeek, ' ',
+                    startMonth, ' ',
+                    startDay, ' ',
+                    startYear, '</p><p size="30" class="black-text text-darken-2" >', "Tomorrow there is no school" , '</p>'
+                    ];
+
+
+}
+
                 li.innerHTML = str.join('');
                 li.setAttribute('class', classes.join(' '));
                 document.getElementById('events').appendChild(li);
@@ -228,7 +255,7 @@ if (resp.items.length == 0){
                     startYear, '</p><p size="30" class="black-text text-darken-2" >', "Tomorrow there is no school" , '</p>'
                     ];
 
-                     lit.innerHTML = str.join('');
+                     
 
             	lit.innerHTML = str.join('');
             	document.getElementById('events').appendChild(lit)
