@@ -226,7 +226,7 @@ document.title = "Tomorrow has no school";
                         ];
                 }
                 
-if(str == "")
+if(str == "" && !isSchool)
 {
 var str = [
                     '<p size="30 >',
@@ -242,7 +242,8 @@ document.title = "Tomorrow has no school";
                 li.innerHTML = str.join('');
                 li.setAttribute('class', classes.join(' '));
                 document.getElementById('events').appendChild(li);
-            }
+            
+	   }
             
             
 if (resp.items.length == 0){
