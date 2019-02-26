@@ -198,20 +198,7 @@ document.title = "Tomorrow is red";
  if(!isSchool && setDay == false)
             {
 
-            	var lit = document.createElement('lit');
-
-            	var str = [
-                    '<p size="30 >',
-                    startDayWeek, ' ',
-                    startMonth, ' ',
-                    startDay, ' ',
-                    startYear, '</p><p size="30" class="black-text text-darken-2" >', "Tomorrow there is no school" , '</p>'
-                    ];
-document.title = "Tomorrow has no school";
-                     lit.innerHTML = str.join('');
-
-            	lit.innerHTML = str.join('');
-            	document.getElementById('events').appendChild(lit)
+            	
 
     		}
 
@@ -231,15 +218,7 @@ document.title = "Tomorrow has no school";
                 
 if(str == "" && !isSchool && setDay == false)
 {
-var str = [
-                    '<p size="30 >',
-                    startDayWeek, ' ',
-                    startMonth, ' ',
-                    startDay, ' ',
-                    startYear, '</p><p size="30" class="black-text text-darken-2" >', "Tomorrow there is no school" , '</p>'
-                    ];
 
-document.title = "Tomorrow has no school";
 }
 
                 li.innerHTML = str.join('');
@@ -262,6 +241,24 @@ if (resp.items.length == 0){
 
                      document.title = "Tomorrow has no school";
 
+
+            	lit.innerHTML = str.join('');
+            	document.getElementById('events').appendChild(lit)
+}
+	    
+else if(setDay == false){
+
+	var lit = document.createElement('lit');
+
+            	var str = [
+                    '<p size="30 >',
+                    startDayWeek, ' ',
+                    startMonth, ' ',
+                    startDay, ' ',
+                    startYear, '</p><p size="30" class="black-text text-darken-2" >', "Tomorrow there is no school" , '</p>'
+                    ];
+document.title = "Tomorrow has no school";
+                     lit.innerHTML = str.join('');
 
             	lit.innerHTML = str.join('');
             	document.getElementById('events').appendChild(lit)
