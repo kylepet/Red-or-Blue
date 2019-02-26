@@ -154,7 +154,11 @@ function makeApiCall() {
                     
 
                 if( allDay == true){ //change this to match your needs
-                    
+
+			if(setDay){
+			break
+			}
+				
 
                     if(item.summary == "BLUE"  ){
                       isRed = false
