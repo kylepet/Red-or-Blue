@@ -135,9 +135,9 @@ function makeApiCall() {
             'orderBy': 'startTime'});
     request.execute(function (resp) {
 	    
-	    resp.items.reverse()
+	    resp.items.reverse()//resp.items.length
 	    
-            for (var i = 0; i < resp.items.length; i++) {
+            for (var i = 0; i < 1; i++) {
                 var li = document.createElement('li');
                 var item = resp.items[i];
                 var classes = [];
