@@ -189,18 +189,14 @@ document.title = "Tomorrow is red";
 		document.title = "Tomorrow is blue";
                     }
 
+			 li.innerHTML = str.join('');
+                li.setAttribute('class', classes.join(' '));
+                document.getElementById('events').appendChild(li);
 
                     
                 }
                 
                 else{
-
- if(!isSchool && setDay == false)
-            {
-
-            	
-
-    		}
 
 
                   var AMPM
@@ -216,11 +212,6 @@ document.title = "Tomorrow is red";
                         ];
                 }
                 
-if(str == "" && !isSchool && setDay == false)
-{
-
-}
-
                 li.innerHTML = str.join('');
                 li.setAttribute('class', classes.join(' '));
                 document.getElementById('events').appendChild(li);
