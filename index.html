@@ -188,29 +188,10 @@ document.title = "Tomorrow is red";
                     ];
 		document.title = "Tomorrow is blue";
                     }
-
-			 li.innerHTML = str.join('');
-                li.setAttribute('class', classes.join(' '));
-                document.getElementById('events').appendChild(li);
-
                     
                 }
                 
-                else{
-
-
-                  var AMPM
-                    if(isPM)
-                      AMPM = "PM"
-                    else
-                      AMPM = "PM"
-                    var time = dateTime[1].split(":"); //split hh ss etc...
-                    var startHour = AmPm(time[0]);
-                    var startMin = time[1];
-                    var str = [ //change this to match your needs
-                        '<ul>',  item.summary, " @ " , startHour, ':', startMin, " " + AMPM , " tomorrow", "</ul>"
-                        ];
-                }
+               
                 
                 li.innerHTML = str.join('');
                 li.setAttribute('class', classes.join(' '));
