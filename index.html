@@ -47,6 +47,7 @@ var isRed
 var isPM = true
 var isSchool = false
 var scopes = 'https://www.googleapis.com/auth/calendar';
+var setDay = false
     
 //--------------------- Add a 0 to numbers
 function padNum(num) {
@@ -133,6 +134,9 @@ function makeApiCall() {
             'maxResults': maxRows, 
             'orderBy': 'startTime'});
     request.execute(function (resp) {
+	    
+	    resp.items.reverse()
+	    
             for (var i = 0; i < resp.items.length; i++) {
                 var li = document.createElement('li');
                 var item = resp.items[i];
@@ -155,10 +159,12 @@ function makeApiCall() {
                     if(item.summary == "BLUE"  ){
                       isRed = false
                       isSchool = true
+			    setDay = true
                     }
                     else if(item.summary == "RED") {
                       isRed = true
                       isSchool = true
+			    setDay = true
                     }
                     if(item.summary == "RED"){
                       var str = [
