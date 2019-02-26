@@ -45,6 +45,7 @@ var userTimeZone = "Los_Angeles"; //example "Rome" "Los_Angeles" ecc...
 var maxRows = 10; //events to shown
 var calName = ""; //name of calendar (write what you want, doesn't matter)
 var isRed
+var setDay = false
 var isPM = true
 var isSchool = false
 var scopes = 'https://www.googleapis.com/auth/calendar';
@@ -157,14 +158,16 @@ function makeApiCall() {
 
                     if(item.summary == "BLUE"  ){
                       isRed = false
+		      setDay = true
                       isSchool = true
                     }
                     else if(item.summary == "RED") {
                       isRed = true
+			setDay = true
                       isSchool = true
                     }
 
-                    if(item.summary == "RED"){
+                    if(item.summary == "RED" && setDay == false){
                       var str = [
                     '<p size="30 >',
                     startDayWeek, ' ',
@@ -175,7 +178,7 @@ function makeApiCall() {
 document.title = "Tomorrow is red";
 		    
 		}
-                    else if(item.summary == "BLUE"){
+                    else if(item.summary == "BLUE" && setDay == false){
                       var str = [
                     '<p size="30 >',
                     startDayWeek, ' ',
@@ -192,7 +195,7 @@ document.title = "Tomorrow is red";
                 
                 else{
 
- if(!isSchool)
+ if(!isSchool && setDay == false)
             {
 
             	var lit = document.createElement('lit');
@@ -226,7 +229,7 @@ document.title = "Tomorrow has no school";
                         ];
                 }
                 
-if(str == "" && !isSchool)
+if(str == "" && !isSchool && setDay == false)
 {
 var str = [
                     '<p size="30 >',
