@@ -27,7 +27,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-133359397-3');
 </script>
 
@@ -45,7 +44,6 @@ var userTimeZone = "Los_Angeles"; //example "Rome" "Los_Angeles" ecc...
 var maxRows = 10; //events to shown
 var calName = ""; //name of calendar (write what you want, doesn't matter)
 var isRed
-var setDay = false
 var isPM = true
 var isSchool = false
 var scopes = 'https://www.googleapis.com/auth/calendar';
@@ -152,25 +150,16 @@ function makeApiCall() {
                 
                 
                     
-
-                if(true){ //change this to match your needs
-
-			if(setDay){
-			break
-			}
-				
-
+                if( allDay == true){ //change this to match your needs
+                    
                     if(item.summary == "BLUE"  ){
                       isRed = false
-		      setDay = true
                       isSchool = true
                     }
                     else if(item.summary == "RED") {
                       isRed = true
-			setDay = true
                       isSchool = true
                     }
-
                     if(item.summary == "RED"){
                       var str = [
                     '<p size="30 >',
@@ -195,37 +184,10 @@ document.title = "Tomorrow is red";
                     
                 }
                 
-               
-                
-                li.innerHTML = str.join('');
-                li.setAttribute('class', classes.join(' '));
-                document.getElementById('events').appendChild(li);
-            
-	   }
-            
-            
-if (resp.items.length == 0){
-	var lit = document.createElement('lit');
-
-            	var str = [
-                    '<p size="30 >',
-                    startDayWeek, ' ',
-                    startMonth, ' ',
-                    startDay, ' ',
-                    startYear, '</p><p size="30" class="black-text text-darken-2" >', "Tomorrow there is no school" , '</p>'
-                    ];
-
-                     document.title = "Tomorrow has no school";
-
-
-            	lit.innerHTML = str.join('');
-            	document.getElementById('events').appendChild(lit)
-}
-	    
-else if(setDay == false){
-
-	var lit = document.createElement('lit');
-
+                else{
+ if(!isSchool)
+            {
+            	var lit = document.createElement('lit');
             	var str = [
                     '<p size="30 >',
                     startDayWeek, ' ',
@@ -235,13 +197,54 @@ else if(setDay == false){
                     ];
 document.title = "Tomorrow has no school";
                      lit.innerHTML = str.join('');
-
+            	lit.innerHTML = str.join('');
+            	document.getElementById('events').appendChild(lit)
+    		}
+                  var AMPM
+                    if(isPM)
+                      AMPM = "PM"
+                    else
+                      AMPM = "PM"
+                    var time = dateTime[1].split(":"); //split hh ss etc...
+                    var startHour = AmPm(time[0]);
+                    var startMin = time[1];
+                    var str = [ //change this to match your needs
+                        '<ul>',  item.summary, " @ " , startHour, ':', startMin, " " + AMPM , " tomorrow", "</ul>"
+                        ];
+                }
+                
+if(str == "" && !isSchool)
+{
+var str = [
+                    '<p size="30 >',
+                    startDayWeek, ' ',
+                    startMonth, ' ',
+                    startDay, ' ',
+                    startYear, '</p><p size="30" class="black-text text-darken-2" >', "Tomorrow there is no school" , '</p>'
+                    ];
+document.title = "Tomorrow has no school";
+}
+                li.innerHTML = str.join('');
+                li.setAttribute('class', classes.join(' '));
+                document.getElementById('events').appendChild(li);
+            
+	   }
+            
+            
+if (resp.items.length == 0){
+	var lit = document.createElement('lit');
+            	var str = [
+                    '<p size="30 >',
+                    startDayWeek, ' ',
+                    startMonth, ' ',
+                    startDay, ' ',
+                    startYear, '</p><p size="30" class="black-text text-darken-2" >', "Tomorrow there is no school" , '</p>'
+                    ];
+                     document.title = "Tomorrow has no school";
             	lit.innerHTML = str.join('');
             	document.getElementById('events').appendChild(lit)
 }
            
-
-
         });
     });
 }
