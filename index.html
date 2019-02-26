@@ -135,7 +135,7 @@ function makeApiCall() {
             'orderBy': 'startTime'});
     request.execute(function (resp) {
 	    
-	    resp.items.reverse()//resp.items.length
+	    
 	    
             for (var i = 0; i < 1; i++) {
                 var li = document.createElement('li');
@@ -191,21 +191,7 @@ document.title = "Tomorrow is red";
                 }
                 
                 else{
- if(!isSchool)
-            {
-            	var lit = document.createElement('lit');
-            	var str = [
-                    '<p size="30 >',
-                    startDayWeek, ' ',
-                    startMonth, ' ',
-                    startDay, ' ',
-                    startYear, '</p><p size="30" class="black-text text-darken-2" >', "Tomorrow there is no school" , '</p>'
-                    ];
-document.title = "Tomorrow has no school";
-                     lit.innerHTML = str.join('');
-            	lit.innerHTML = str.join('');
-            	document.getElementById('events').appendChild(lit)
-    		}
+
                   var AMPM
                     if(isPM)
                       AMPM = "PM"
