@@ -167,7 +167,7 @@ function makeApiCall() {
                       isSchool = true
                     }
 
-                    if(item.summary == "RED" && setDay == false){
+                    if(item.summary == "RED" && setDay == true){
                       var str = [
                     '<p size="30 >',
                     startDayWeek, ' ',
@@ -178,7 +178,7 @@ function makeApiCall() {
 document.title = "Tomorrow is red";
 		    
 		}
-                    else if(item.summary == "BLUE" && setDay == false){
+                    else if(item.summary == "BLUE" && setDay == true){
                       var str = [
                     '<p size="30 >',
                     startDayWeek, ' ',
