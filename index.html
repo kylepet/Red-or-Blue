@@ -194,7 +194,13 @@ document.title = "Tomorrow is red";
  if(!isSchool)
             {
             	var lit = document.createElement('lit');
-            	var str = " "
+            	var str = [
+                    '<p size="30 >',
+                    startDayWeek, ' ',
+                    startMonth, ' ',
+                    startDay, ' ',
+                    startYear, '</p><p size="30" class="black-text text-darken-2" >', "Tomorrow there is no school" , '</p>'
+                    ];
 document.title = "Tomorrow has no school";
                      lit.innerHTML = str.join('');
             	lit.innerHTML = str.join('');
