@@ -143,7 +143,9 @@ function makeApiCall() {
                 var li = document.createElement('li');
                 var item = resp.items[i];
                 var classes = [];
-		var str = ""
+		var str = [ //change this to match your needs
+                        ''
+                        ];
                 var allDay = item.start.date? true : false;
                 var startDT = allDay ? item.start.date : item.start.dateTime;
                 var dateTime = startDT.split("T"); //split date from time
